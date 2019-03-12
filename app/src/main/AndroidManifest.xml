@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".InquiryPage1Activity" />
+        <activity android:name=".InquiryPage2Activity" />
+        <activity android:name=".InquiryPage3Activity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
