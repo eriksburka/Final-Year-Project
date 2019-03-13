@@ -15,16 +15,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView profile;
+    private TextView query;
+    private String queryText = "";
     private String profileText = "";
     private String address = "http://192.168.56.1/ServerStuff/ServerConnection/InsertRecord.php";
     private InputStream inputStream = null;
-    private String line = null;
-    private String result = null;
+    private String result = "";
     private String [] data= null;
     private String [] data2= null;
 
@@ -36,11 +36,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         profile = findViewById(R.id.textViewFullProfile);
+        query = findViewById(R.id.textView);
 
         InquiryPage3Activity q = new InquiryPage3Activity();
-        InquiryPage2Activity c = new InquiryPage2Activity();
 
-        ArrayList<String> counties = c.getCounties();
+//        ArrayList<String> counties = q.getCounties();
 
         profileText += "Age Preference: " + q.getAge() + "\n";
         profileText += "Sex Preference: " + q.getSex() + "\n";
@@ -52,9 +52,9 @@ public class ProfileActivity extends AppCompatActivity {
         profileText += "Occupancy Preference: " + q.getOccupancy() + "\n";
         profileText += "\n Search for the following counties: \n";
 
-        for(int i=0;i<counties.size();i++){
-            profileText += counties.get(i) + "\n";
-        }
+//        for(int i=0;i<counties.size();i++){
+//            profileText += counties.get(i) + "\n";
+//        }
 
         profile.setText(profileText);
 
@@ -107,12 +107,13 @@ public class ProfileActivity extends AppCompatActivity {
                 jsonObject=jsonArray.getJSONObject(i);
                 data[i]=jsonObject.getString("GUID");
                 data2[i]=jsonObject.getString("T1_1AGETM");
-                System.out.print("GUID: " + data[i] + "\n");
-                System.out.print("AGE: " + data2[i] + "\n");
+                queryText += "GUID: " + data[i] + "\n";
+                queryText +="AGE: " + data2[i] + "\n";
             }
 
         }catch(Exception e){
             e.printStackTrace();
         }
+        query.setText(queryText);
     }
 }

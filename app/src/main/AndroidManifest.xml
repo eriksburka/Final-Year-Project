@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.serverstuff">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,9 +20,12 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".InquiryPage1Activity" />
-        <activity android:name=".InquiryPage2Activity" />
         <activity android:name=".InquiryPage3Activity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".InquiryUlsterActivity" />
+        <activity android:name=".InquiryMunsterActivity" />
+        <activity android:name=".InquiryLeinsterActivity" />
+        <activity android:name=".InquiryConnachtActivity"></activity>
     </application>
 
 </manifest>

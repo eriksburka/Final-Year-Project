@@ -7,64 +7,101 @@
     android:background="@drawable/background_colour"
     tools:context=".InquiryPage1Activity">
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/County1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="125dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/connacht"
+        android:background="@drawable/button_shape"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Leinster"
+        android:textColor="#4286f4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chosenCountiesText" />
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="162dp"
-            android:layout_marginBottom="65dp" />
+    <Button
+        android:id="@+id/connacht"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Connacht"
+        android:textColor="#4286f4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/County1" />
 
+    <Button
+        android:id="@+id/munster"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_alignStart="@+id/ulster"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_shape"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Munster"
+        android:textColor="#4286f4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connacht" />
 
-        <Button
-            android:id="@+id/leinster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="162dp"
-            android:text="Leinster"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="80dp" />
+    <Button
+        android:id="@+id/ulster"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_shape"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Ulster"
+        android:textColor="#4286f4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/munster" />
 
-        <Button
-            android:id="@+id/connacht"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="126dp"
-            android:text="Connacht"
-            tools:layout_editor_absoluteX="138dp"
-            tools:layout_editor_absoluteY="168dp" />
+    <TextView
+        android:id="@+id/chosenCountiesText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:text="Choose the province you wish to search in."
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/munster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="248dp"
-            android:text="Munster"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="256dp" />
-
-        <Button
-            android:id="@+id/ulster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="65dp"
-            android:text="Ulster"
-            tools:layout_editor_absoluteX="147dp"
-            tools:layout_editor_absoluteY="340dp" />
-
-    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
