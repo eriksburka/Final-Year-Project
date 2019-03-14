@@ -1,7 +1,9 @@
 package com.example.user.serverstuff;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class InquiryLeinsterActivity extends AppCompatActivity {
@@ -12,5 +14,16 @@ public class InquiryLeinsterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inquiry_leinster);
+
+        dublin = findViewById(R.id.Dublin);
+
+        dublin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
