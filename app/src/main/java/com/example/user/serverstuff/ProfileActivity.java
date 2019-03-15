@@ -59,7 +59,11 @@ public class ProfileActivity extends AppCompatActivity {
         profile.setText(profileText);
 
         StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
+        Sender s=new Sender(ProfileActivity.this,address,"SELECT GEOGID FROM censusdata WHERE ",q.getAge(),"AND (T1_1AGE25_29T = 2)");
+        s.execute();
         getData();
+
+
 
     }
 

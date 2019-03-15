@@ -113,7 +113,17 @@ public class InquiryPage3Activity extends AppCompatActivity implements OnItemSel
     }
 
     public void setAge(String age) {
-        this.age = age;
+        switch (age) {
+            case "Young":
+                this.age = "(T1_1AGE20_24T = 0)";
+                break;
+            case "Old":
+                this.age = "(T1_1AGE20_24T = 1)";
+                break;
+            case "I Don't Care":
+                this.age = "(T1_1AGE20_24T = 2)";
+                break;
+        }
     }
 
     public String getAge() {

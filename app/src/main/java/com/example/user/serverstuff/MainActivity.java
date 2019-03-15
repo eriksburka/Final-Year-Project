@@ -15,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //START ASYNC TASK
-        Sender s=new Sender(MainActivity.this,urlAddress,"SELECT GEOGID FROM censusdata WHERE ","(T1_1AGE20_24T < 1)","AND (T1_1AGE25_29T < 1)");
-        s.execute();
-
     }
 
 }

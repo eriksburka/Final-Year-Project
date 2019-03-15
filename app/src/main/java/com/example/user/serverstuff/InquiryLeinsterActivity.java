@@ -20,7 +20,7 @@ public class InquiryLeinsterActivity extends AppCompatActivity {
         dublin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                Intent i = new Intent(getApplicationContext(),InquiryPage3Activity.class);
                 startActivity(i);
             }
         });
