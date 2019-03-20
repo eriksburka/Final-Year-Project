@@ -1,209 +1,584 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InquiryPage3Activity"
     android:background="@drawable/background_colour"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    android:fillViewport="true">
 
-    <Spinner
-        android:id="@+id/spinnerOccupancy"
-        android:layout_width="137dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="182dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmployment"
-        app:layout_constraintTop_toTopOf="@+id/textViewCultural" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewEmployment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="206dp"
-        android:text="Employment Status"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerOccupancy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewStudent" />
-
-    <TextView
-        android:id="@+id/textViewOccupancy"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="205dp"
-        android:text="Occupancy Status"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/sexPreferenceText"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:text="Sex Preference:"
+        android:textAlignment="center"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spinnerEmployment"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerModern" />
-
-    <Spinner
-        android:id="@+id/spinnerModern"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="223dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOccupancy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewStudent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewSex"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="42dp"
-        android:text="Sex Preference of Area"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerSex"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerAge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewCultural"
-        android:layout_width="201dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Cultural Diversity Preference"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerCultural"
-        app:layout_constraintEnd_toStartOf="@+id/textViewIrish"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerSex" />
+        <Button
+            android:id="@+id/SexButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/sexPreferenceText"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority Men"
+            android:textColor="#4286f4" />
 
-    <TextView
-        android:id="@+id/textViewModern"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="60dp"
-        android:text="Modern Area"
-        app:layout_constraintBottom_toTopOf="@+id/textViewOccupancy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spinnerStudent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerIrish" />
+        <Button
+            android:id="@+id/sexButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/sexPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/SexButton1"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority \nWomen"
+            android:textColor="#4286f4"/>
 
-    <TextView
-        android:id="@+id/textViewStudent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="60dp"
-        android:text="Student Area"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmployment"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerModern"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCultural" />
+        <Button
+            android:id="@+id/sexButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/sexPreferenceText"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/sexButton2"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
 
-    <TextView
-        android:id="@+id/textViewIrish"
-        android:layout_width="134dp"
-        android:layout_height="21dp"
-        android:layout_marginEnd="28dp"
-        android:text="Irish Speaking Area"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerIrish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewCultural"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerAge" />
+        <TextView
+            android:id="@+id/AgePreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/sexButton3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Age Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp" />
 
-    <Spinner
-        android:id="@+id/spinnerSex"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewCultural"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerAge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSex" />
+        <Button
+            android:id="@+id/AgeButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/AgePreferenceText"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority Young"
+            android:textColor="#4286f4"/>
 
-    <Spinner
-        android:id="@+id/spinnerCultural"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewStudent"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerIrish"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCultural" />
+        <Button
+            android:id="@+id/AgeButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/AgePreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/AgeButton1"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority Old"
+            android:textColor="#4286f4" />
 
-    <Spinner
-        android:id="@+id/spinnerStudent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerModern"
-        app:layout_constraintEnd_toStartOf="@+id/textViewModern"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinnerModern" />
+        <Button
+            android:id="@+id/AgeButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/AgePreferenceText"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/AgeButton2"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
 
-    <Spinner
-        android:id="@+id/spinnerEmployment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerOccupancy"
-        app:layout_constraintEnd_toStartOf="@+id/textViewOccupancy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinnerOccupancy" />
+        <TextView
+            android:id="@+id/CulturalPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/AgeButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Cultural Diversity Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AgeButton1" />
 
-    <Spinner
-        android:id="@+id/spinnerIrish"
-        android:layout_width="136dp"
-        android:layout_height="23dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewModern"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spinnerCultural"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIrish" />
+        <Button
+            android:id="@+id/CulturalButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/CulturalPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Diversity"
+            android:textColor="#4286f4" />
 
-    <TextView
-        android:id="@+id/textViewAge"
-        android:layout_width="147dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="31dp"
-        android:text="Age Preference of Area"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerAge"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerModern"
-        app:layout_constraintStart_toStartOf="@+id/spinnerAge"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/CulturalButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/CulturalPreferenceText"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/CulturalButton1"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Diversity"
+            android:textColor="#4286f4" />
 
-    <Spinner
-        android:id="@+id/spinnerAge"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewIrish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spinnerSex"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAge" />
+        <Button
+            android:id="@+id/CulturalButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/CulturalPreferenceText"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@+id/CulturalButton2"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOccupancy" />
+        <TextView
+            android:id="@+id/IrishPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/CulturalButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Irish-Speakng Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/IrishButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/IrishPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Irish \nSpeaking"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/IrishButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/IrishPreferenceText"
+            android:layout_toEndOf="@+id/IrishButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Non-Irish \nSpeaking"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/IrishButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/IrishPreferenceText"
+            android:layout_toEndOf="@+id/IrishButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/studentButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/StudentPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Many Students"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/studentButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/StudentPreferenceText"
+            android:layout_toEndOf="@+id/studentButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Few/None \nStudents"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/studentButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/StudentPreferenceText"
+            android:layout_toEndOf="@+id/studentButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+        <TextView
+            android:id="@+id/StudentPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/IrishButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="10dp"
+            android:text="Student Population Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
+
+        <TextView
+            android:id="@+id/housePreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/studentButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="House Type Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
+
+        <Button
+            android:id="@+id/houseButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/housePreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority Houses"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/houseButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/housePreferenceText"
+            android:layout_toEndOf="@+id/studentButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Majority \Apartments"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/houseButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/housePreferenceText"
+            android:layout_toEndOf="@+id/studentButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+        <TextView
+            android:id="@+id/modernPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/houseButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Modernity Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
+
+        <Button
+            android:id="@+id/modernButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/modernPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Very Modern"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/modernButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/modernPreferenceText"
+            android:layout_toEndOf="@+id/studentButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Not Modern"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/modernButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/modernPreferenceText"
+            android:layout_toEndOf="@+id/studentButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+        <TextView
+            android:id="@+id/broadbandPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/modernButton1"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="Broadband Preference:"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
+
+        <Button
+            android:id="@+id/broadbandButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/broadbandPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="High \nAvailability"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/broadbandButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/broadbandPreferenceText"
+            android:layout_toEndOf="@+id/studentButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Normal \nAvailability"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/broadbandButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@id/broadbandPreferenceText"
+            android:layout_toEndOf="@+id/studentButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+        <TextView
+            android:id="@+id/unemploymenentPreferenceText"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/broadbandButton1"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="10dp"
+            android:text="Unemployment"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CulturalButton1" />
+
+        <Button
+            android:id="@+id/unemploymentButton1"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/unemploymenentPreferenceText"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Many Students"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/unemploymentButton2"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/unemploymenentPreferenceText"
+            android:layout_toEndOf="@+id/studentButton1"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Few/None \nStudents"
+            android:textColor="#4286f4" />
+
+        <Button
+            android:id="@+id/unemploymentButton3"
+            android:layout_width="129dp"
+            android:layout_height="65dp"
+            android:layout_below="@+id/unemploymenentPreferenceText"
+            android:layout_toEndOf="@+id/studentButton2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="No Preference"
+            android:textColor="#4286f4" />
+
+</RelativeLayout>
+
+    </ScrollView>
