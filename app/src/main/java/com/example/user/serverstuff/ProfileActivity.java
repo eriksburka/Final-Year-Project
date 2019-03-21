@@ -49,7 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
         profileText += "Student Preference: " + q.getStudent() + "\n";
         profileText += "Modern Preference: " + q.getModern() + "\n";
         profileText += "Employment Preference: " + q.getEmployment() + "\n";
-        profileText += "Occupancy Preference: " + q.getOccupancy() + "\n";
         profileText += "\n Search for the following counties: \n";
 
 //        for(int i=0;i<counties.size();i++){
@@ -62,8 +61,6 @@ public class ProfileActivity extends AppCompatActivity {
         Sender s=new Sender(ProfileActivity.this,address,"SELECT GEOGID FROM censusdata WHERE ",q.getAge(),"AND (T1_1AGE25_29T = 2)");
         s.execute();
         getData();
-
-
 
     }
 
