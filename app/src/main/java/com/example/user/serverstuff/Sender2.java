@@ -23,19 +23,14 @@ import java.util.ArrayList;
  * 2.DO IT IN BACKGROUND THREAD
  * 3.READ RESPONSE FROM A SERVER
  */
-public class Sender extends AsyncTask<Void,Void,String> {
+public class Sender2 extends AsyncTask<Void,Void,String> {
 
     Context c;
     String urlAddress;
     String nameTxt,posTxt,teamTxt;
     String name,pos,team;
     private InputStream inputStream = null;
-    private static String [] data= null;
-    private String [] data2=null;
-    private static String queryText;
-    private static String result;
-
-    private static boolean checker = false;
+    private String [] data= null;
 
     private static ArrayList<String> sqlQueryList = new ArrayList<>();
     private static String query = "";
@@ -47,7 +42,7 @@ public class Sender extends AsyncTask<Void,Void,String> {
             1.OUR CONSTRUCTOR
     2.RECEIVE CONTEXT,URL ADDRESS AND EDITTEXTS FROM OUR MAINACTIVITY
     */
-    public Sender(Context c, String urlAddress,String...strings) {
+    public Sender2(Context c, String urlAddress,String...strings) {
         this.c = c;
         this.urlAddress = urlAddress;
 
@@ -84,7 +79,7 @@ public class Sender extends AsyncTask<Void,Void,String> {
         if(response != null)
         {
             //SUCCESS
-//            Toast.makeText(c,response,Toast.LENGTH_LONG).show();
+            Toast.makeText(c,response,Toast.LENGTH_LONG).show();
 
             ProfileActivity p = new ProfileActivity();
             p.setResult(response);
@@ -104,18 +99,16 @@ public class Sender extends AsyncTask<Void,Void,String> {
     {
         //CONNECT
         HttpURLConnection con=Connector.connect(urlAddress);
-
         if(con==null)
         {
             return null;
         }
-
-        try {
-            OutputStream os = con.getOutputStream();
-
+        try
+        {
+            OutputStream os=con.getOutputStream();
             //WRITE
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
-            bw.write(new DataPackager(name, pos, team).packData());
+            BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(os));
+            bw.write(new DataPackager(name,pos,team).packData());
 
             bw.flush();
 
@@ -124,8 +117,9 @@ public class Sender extends AsyncTask<Void,Void,String> {
             os.close();
 
             //HAS IT BEEN SUCCESSFUL?
-            int responseCode = con.getResponseCode();
-            if (responseCode == con.HTTP_OK) {
+            int responseCode=con.getResponseCode();
+            if(responseCode==con.HTTP_OK)
+            {
                 try {
                     //URL url = new URL(address);
                     try {
@@ -140,17 +134,17 @@ public class Sender extends AsyncTask<Void,Void,String> {
                     e.printStackTrace();
                 }
 
-                try {
+                try{
 
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                     testing = bufferedReader.readLine();
                     System.out.print("--------------------Result-------------------------\n");
-                    System.out.print(testing + "\n");
+                    System.out.print(testing+ "\n");
+                    //System.out.print(result+ "\n");
 
                     if(testing.equals("<br />")){
-                            sqlQueryList.add("empty");
+                        sqlQueryList.add("empty");
                     }
-
 
 //            if(testing == null) {
 //                System.out.print("Null\n");
@@ -165,35 +159,39 @@ public class Sender extends AsyncTask<Void,Void,String> {
                     e.printStackTrace();
                 }
 
-                if (!testing.equals("<br />")) {
-                    try {
-                        JSONArray jsonArray = new JSONArray(testing);
-                        data = new String[jsonArray.length()];
+                try{
+                    JSONArray jsonArray = new JSONArray(testing);
+                    // ProfileActivity p = new ProfileActivity();
+                    data = new String[jsonArray.length()];
 
                         for (int i = 0; i < jsonArray.length(); i++) {
 
                             jsonObject = jsonArray.getJSONObject(i);
-                            data[i] = jsonObject.getString("GEOGID");
+                            data[i] = jsonObject.getString("Electoral_District");
                             sqlQueryList.add(data[i]);
                         }
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                }catch(Exception e){
+                    e.printStackTrace();
                 }
-                }
-            } catch(IOException e){
-                e.printStackTrace();
+            }else
+            {
+
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         return "";
     }
 
-    public ArrayList<String> getsqlQueryList(){
+    public ArrayList<String> getsqlQueryList2(){
         return this.sqlQueryList;
     }
 
     public void setSqlQueryList(ArrayList<String> list){
         this.sqlQueryList = list;
     }
+
 }

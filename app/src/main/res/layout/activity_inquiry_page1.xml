@@ -75,7 +75,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/button_shape"
         android:shadowColor="#000000"
         android:shadowDx="1.5"
@@ -83,7 +82,6 @@
         android:shadowRadius="1.6"
         android:text="Ulster"
         android:textColor="#4286f4"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/munster" />
@@ -91,13 +89,13 @@
     <TextView
         android:id="@+id/chosenCountiesText"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:textAlignment="center"
         android:text="Choose the province you wish to search in."
-        android:textSize="18dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

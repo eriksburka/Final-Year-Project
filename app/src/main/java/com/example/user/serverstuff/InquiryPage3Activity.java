@@ -1,10 +1,15 @@
 package com.example.user.serverstuff;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 public class InquiryPage3Activity extends AppCompatActivity{
 
@@ -35,6 +40,7 @@ public class InquiryPage3Activity extends AppCompatActivity{
     private Button broadband1;
     private Button broadband2;
     private Button broadband3;
+    private Button submitButton;
 
     private static String sex;
     private static String age;
@@ -45,6 +51,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
     private static String employment;
     private static String house;
     private static String broadband;
+    private static ArrayList<String> testArray = new ArrayList<>();
+    private static ArrayList<String> testArray2 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,11 +86,12 @@ public class InquiryPage3Activity extends AppCompatActivity{
         broadband1 = findViewById(R.id.broadbandButton1);
         broadband2 = findViewById(R.id.broadbandButton2);
         broadband3 = findViewById(R.id.broadbandButton3);
+        submitButton = findViewById(R.id.submitButton);
 
         sex1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                setAge("SELECT * FROM `censusdata` WHERE (((`T1_1AGE30_34T`+`T1_1AGE35_39T`+`T1_1AGE40_44T`+`T1_1AGE45_49T`+`T1_1AGE50_54T`+`T1_1AGE55_59T`+`T1_1AGE60_64T`+`T1_1AGE65_69T`+`T1_1AGE70_74T`+`T1_1AGE75_79T`+`T1_1AGE80_84T`+`T1_1AGEGE_85T`)/(`T1_1AGETT`)) < 0.5);");
+                setSex(" (`T1_1AGETM`>`T1_1AGETF`)");
 
                 if(sex1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     sex1.setBackgroundResource(R.drawable.button_shape2);
@@ -104,6 +113,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         sex2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setSex(" (`T1_1AGETM`<`T1_1AGETF`)");
+
                 if(sex2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     sex2.setBackgroundResource(R.drawable.button_shape2);
                     sex2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -123,6 +135,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         sex3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setSex("");
+
                 if(sex3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     sex3.setBackgroundResource(R.drawable.button_shape2);
                     sex3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -142,6 +157,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         age1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setAge("(((`T1_1AGE30_34T`+`T1_1AGE35_39T`+`T1_1AGE40_44T`+`T1_1AGE45_49T`+`T1_1AGE50_54T`+`T1_1AGE55_59T`+`T1_1AGE60_64T`+`T1_1AGE65_69T`+`T1_1AGE70_74T`+`T1_1AGE75_79T`+`T1_1AGE80_84T`+`T1_1AGEGE_85T`)/(`T1_1AGETT`)) < 0.5)");
 
                 if(age1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     age1.setBackgroundResource(R.drawable.button_shape2);
@@ -163,6 +180,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         age2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setAge("(((`T1_1AGE30_34T`+`T1_1AGE35_39T`+`T1_1AGE40_44T`+`T1_1AGE45_49T`+`T1_1AGE50_54T`+`T1_1AGE55_59T`+`T1_1AGE60_64T`+`T1_1AGE65_69T`+`T1_1AGE70_74T`+`T1_1AGE75_79T`+`T1_1AGE80_84T`+`T1_1AGEGE_85T`)/(`T1_1AGETT`)) > 0.5)");
+
                 if(age2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     age2.setBackgroundResource(R.drawable.button_shape2);
                     age2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -182,6 +202,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         age3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setAge("");
+
                 if(age3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     age3.setBackgroundResource(R.drawable.button_shape2);
                     age3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -201,6 +224,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         irish1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setIrish("(((`T3_2DOEST`+`T3_2WOEST`+`T3_2LOOEST`)/`T1_1AGETT`)>0.25)");
 
                 if(irish1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     irish1.setBackgroundResource(R.drawable.button_shape2);
@@ -222,6 +247,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         irish2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setIrish("(((`T3_2DOEST`+`T3_2WOEST`+`T3_2LOOEST`)/`T1_1AGETT`)<0.25)");
+
                 if(irish2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     irish2.setBackgroundResource(R.drawable.button_shape2);
                     irish2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -241,6 +269,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         irish3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setIrish("");
+
                 if(irish3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     irish3.setBackgroundResource(R.drawable.button_shape2);
                     irish3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -262,6 +293,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
         cultural1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                setCultural("((`T2_2WI`/`T1_1AGETT`)<0.8)");
+
                 if(cultural1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     cultural1.setBackgroundResource(R.drawable.button_shape2);
                     cultural1.setTextColor(Color.parseColor("#E9E4F0"));
@@ -282,6 +315,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         cultural2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setCultural("((`T2_2WI`/`T1_1AGETT`)>0.8)");
+
                 if(cultural2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     cultural2.setBackgroundResource(R.drawable.button_shape2);
                     cultural2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -301,6 +337,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         cultural3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setCultural("");
+
                 if(cultural3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     cultural3.setBackgroundResource(R.drawable.button_shape2);
                     cultural3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -320,6 +359,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         student1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setStudent("((`T8_1_ST`/`T1_1AGETT`)>0.15)");
 
                 if(student1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     student1.setBackgroundResource(R.drawable.button_shape2);
@@ -341,6 +382,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         student2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setStudent("((`T8_1_ST`/`T1_1AGETT`)<0.15)");
+
                 if(student2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     student2.setBackgroundResource(R.drawable.button_shape2);
                     student2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -360,6 +404,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         student3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setStudent("");
+
                 if(student3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     student3.setBackgroundResource(R.drawable.button_shape2);
                     student3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -379,6 +426,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         modern1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setModern("((`T6_2_11LP`/`T1_1AGETT`)>0.05)");
 
                 if(modern1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     modern1.setBackgroundResource(R.drawable.button_shape2);
@@ -400,6 +449,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         modern2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setModern("((`T6_2_11LP`/`T1_1AGETT`)<0.05)");
+
                 if(modern2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     modern2.setBackgroundResource(R.drawable.button_shape2);
                     modern2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -419,6 +471,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         modern3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setModern("");
+
                 if(modern3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     modern3.setBackgroundResource(R.drawable.button_shape2);
                     modern3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -440,6 +495,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
         employment1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                setEmployment("((`T8_1_ULGUPJT`/`T1_1AGETT`)<0.05)");
+
                 if(employment1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     employment1.setBackgroundResource(R.drawable.button_shape2);
                     employment1.setTextColor(Color.parseColor("#E9E4F0"));
@@ -460,6 +517,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         employment2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setEmployment("((`T8_1_ULGUPJT`/`T1_1AGETT`)>0.05)");
+
                 if(employment2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     employment2.setBackgroundResource(R.drawable.button_shape2);
                     employment2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -479,6 +539,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         employment3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setEmployment("");
+
                 if(employment3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     employment3.setBackgroundResource(R.drawable.button_shape2);
                     employment3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -501,6 +564,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
         house1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                setHouse("(`T6_1_HB_H`>`T6_1_FA_H`)");
+
                 if(house1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     house1.setBackgroundResource(R.drawable.button_shape2);
                     house1.setTextColor(Color.parseColor("#E9E4F0"));
@@ -521,6 +586,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         house2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setHouse("(`T6_1_HB_H`<`T6_1_FA_H`)");
+
                 if(house2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     house2.setBackgroundResource(R.drawable.button_shape2);
                     house2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -540,6 +608,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         house3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setHouse("");
+
                 if(house3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     house3.setBackgroundResource(R.drawable.button_shape2);
                     house3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -563,6 +634,8 @@ public class InquiryPage3Activity extends AppCompatActivity{
         broadband1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+               setBroadband("(((`T15_3_B`+`T15_3_OTH`)/`T15_3_T`)>0.8)");
+
                 if(broadband1.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     broadband1.setBackgroundResource(R.drawable.button_shape2);
                     broadband1.setTextColor(Color.parseColor("#E9E4F0"));
@@ -583,6 +656,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         broadband2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setBroadband("(((`T15_3_B`+`T15_3_OTH`)/`T15_3_T`)<0.8)");
+
                 if(broadband2.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     broadband2.setBackgroundResource(R.drawable.button_shape2);
                     broadband2.setTextColor(Color.parseColor("#E9E4F0"));
@@ -602,6 +678,9 @@ public class InquiryPage3Activity extends AppCompatActivity{
 
         broadband3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                setBroadband("");
+
                 if(broadband3.getCurrentTextColor() == Color.parseColor("#4286f4")) {
                     broadband3.setBackgroundResource(R.drawable.button_shape2);
                     broadband3.setTextColor(Color.parseColor("#E9E4F0"));
@@ -619,24 +698,47 @@ public class InquiryPage3Activity extends AppCompatActivity{
             }
         });
 
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String address = "http://192.168.56.1/ServerStuff/ServerConnection/InsertRecord.php";
+                ArrayList<String> sqlQueryList = new ArrayList<>();
+                String query = "";
+                String query2 = "";
 
+                submitButton.setBackgroundResource(R.drawable.button_shape2);
+                submitButton.setTextColor(Color.parseColor("#E9E4F0"));
 
+                sqlQueryList.add(getAge());
+                sqlQueryList.add(getSex());
+                sqlQueryList.add(getCultural());
+                sqlQueryList.add(getIrish());
+                sqlQueryList.add(getStudent());
+                sqlQueryList.add(getModern());
+                sqlQueryList.add(getEmployment());
+                sqlQueryList.add(getBroadband());
+                sqlQueryList.add(getHouse());
 
+                for(int i = 0; i<sqlQueryList.size(); i++){
+
+                    if(!sqlQueryList.get(i).equals("") && query.equals("")){
+                        query += sqlQueryList.get(i);
+                    }else if(!sqlQueryList.get(i).equals("") && !query.equals("")) {
+                        query += " AND " + sqlQueryList.get(i);
+                    }
+                }
+
+                StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
+                Sender s=new Sender(InquiryPage3Activity.this,address,"SELECT GEOGID FROM censusdata WHERE ",query,"");
+                s.execute();
+
+                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
-
     public void setAge(String age) {
-        switch (age) {
-            case "Young":
-                this.age = "(T1_1AGE20_24T = 0)";
-                break;
-            case "Old":
-                this.age = "(T1_1AGE20_24T = 1)";
-                break;
-            case "I Don't Care":
-                this.age = "(T1_1AGE20_24T = 2)";
-                break;
-        }
+        this.age = age;
     }
 
     public String getAge() {
@@ -706,6 +808,5 @@ public class InquiryPage3Activity extends AppCompatActivity{
     public String getBroadband() {
         return broadband;
     }
-
 
 }

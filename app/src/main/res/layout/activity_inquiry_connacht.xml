@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InquiryConnachtActivity"
+    android:background="@drawable/background_colour"
     android:fillViewport="true">
 
 
@@ -19,7 +20,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:text="Select the counties you with to search in"
+        android:text="Select the county you wish to search in"
         android:textSize="20dp"
         android:textAlignment="center" />
 

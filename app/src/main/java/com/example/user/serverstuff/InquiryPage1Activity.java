@@ -13,19 +13,7 @@ import java.util.ArrayList;
 public class InquiryPage1Activity extends AppCompatActivity {
 
     private Button leinster, munster, connacht, ulster;
-
-    private ArrayList<String> provinceCounties = new ArrayList<>();
-    private static ArrayList<String> chosenCounties = new ArrayList<>();
-    private Button addCountyButton;
-    private Button continueButton;
-    private TextView chosen;
-    private String countiesList="";
-
-    private String[] leinsterList = {"Carlow", "Dublin", "Kildare", "Kilkenny", "Laois", "Longford", "Louth", "Meath", "Offaly", "Westmeath", "Wexford", "Wicklow"};
-    private String[] munsterList = {"Cork", "Clare", "Kerry", "Waterford", "Limerick", "Tipperary"};
-    private String[] connachtList = {"Galway", "Leitrim" , "Mayo" , "Roscommon", "Sligo"};
-    private String[] ulsterList = {"Cavan" , "Monaghan", "Donegal" , "Antrim" , "Down" , "Armagh" , "Derry" , "Fermanagh" , "Tyrone"};
-
+    private static String county;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +24,6 @@ public class InquiryPage1Activity extends AppCompatActivity {
         munster = findViewById(R.id.munster);
         connacht = findViewById(R.id.connacht);
         ulster = findViewById(R.id.ulster);
-
-        chosen = findViewById(R.id.chosenCountiesText);
 
         leinster.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -86,4 +72,5 @@ public class InquiryPage1Activity extends AppCompatActivity {
             }
         });
     }
+
 }
